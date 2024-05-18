@@ -59,7 +59,18 @@
           requestOptions
         )
           .then((response) => response.text())
-          .then((result) => console.log(result))
+          .then((result) => {
+            const messages_raw = result.split('\n')
+            const messages_clean = () =>{
+                let a = []
+                messages_raw.forEach(f =>{
+                    a.push(f.split(",").slice(1))
+                })
+                return a.slice(1)
+            }
+
+            
+          })
           .catch((error) => console.log("error", error));
       }
     </script>
