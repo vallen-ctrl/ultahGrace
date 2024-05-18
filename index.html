@@ -12,7 +12,7 @@
       <h1 class="gold">Happy 17th Birthday Grace</h1>
     </header>
 
-    <form onsubmit="postMassage()" method="get">
+    <form onsubmit="postMassage();return false" method="get">
       <input type="text" name="userName" id="username"/>
       <input type="text" name="message" required id="message"/>
       <button type="submit" id="submit-form-button" onclick="">Kirim</button>
@@ -38,19 +38,17 @@
           redirect: "follow",
         };
 
-        const userName = (document.getElementById("username").value.split(" ")).join("+")
+        const userName = (document.getElementById("username").value.split(" ")) == [] ? "anonimus" : (document.getElementById("username").value.split(" ")).join("+")
         const userMessage = (document.getElementById("message").value.split(" ")).join("+")
         console.log(userName)
-
+        console.log(userMessage)
 
         const url =
-          "https://docs.google.com/forms/d/e/1FAIpQLSeTWWrtp_HHAdX-H4teXSEQnQ-K2oT9xr0xpdGstJ01q6_nUw/formResponse?usp=pp_url&entry.1407603725=vallen+malia&entry.184409190=hi";
+          `https://docs.google.com/forms/d/e/1FAIpQLSeTWWrtp_HHAdX-H4teXSEQnQ-K2oT9xr0xpdGstJ01q6_nUw/formResponse?usp=pp_url&entry.1407603725=${userName}&entry.184409190=${userMessage}`;
         fetch(url, requestOptions)
           .then((response) => response.text())
           .then((result) => console.log(result))
           .catch((error) => console.log("error", error));
-    
-  
       }
 
       async function getMessage() {
