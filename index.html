@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <title>HBD Grace</title>
 
     <link rel="stylesheet" href="style.css" />
@@ -13,17 +14,17 @@
     </header>
 
     <form onsubmit="postMassage();return false" method="get">
-      <input type="text" name="userName" id="username"/>
-      <input type="text" name="message" required id="message"/>
+      <input type="text" name="userName" id="username" />
+      <input type="text" name="message" required id="message" />
       <button type="submit" id="submit-form-button" onclick="">Kirim</button>
     </form>
 
     <div class="messages" id="messages"></div>
 
-
     <script>
-      window.addEventListener("load", async(a) => {
-        renderElemen(await getMessage())
+      console.log(encryptedText);
+      window.addEventListener("load", async (a) => {
+        renderElemen(await getMessage());
       });
       async function postMassage() {
         var myHeaders = new Headers();
@@ -38,13 +39,18 @@
           redirect: "follow",
         };
 
-        const userName = (document.getElementById("username").value.split(" ")) == [] ? "anonimus" : (document.getElementById("username").value.split(" ")).join("+")
-        const userMessage = (document.getElementById("message").value.split(" ")).join("+")
-        console.log(userName)
-        console.log(userMessage)
+        const userName =
+          document.getElementById("username").value.split(" ") == []
+            ? "anonimus"
+            : document.getElementById("username").value.split(" ").join("+");
+        const userMessage = document
+          .getElementById("message")
+          .value.split(" ")
+          .join("+");
+        console.log(userName);
+        console.log(userMessage);
 
-        const url =
-          `https://docs.google.com/forms/d/e/1FAIpQLSeTWWrtp_HHAdX-H4teXSEQnQ-K2oT9xr0xpdGstJ01q6_nUw/formResponse?usp=pp_url&entry.1407603725=${userName}&entry.184409190=${userMessage}`;
+        const url = `https://docs.google.com/forms/d/e/1FAIpQLSeTWWrtp_HHAdX-H4teXSEQnQ-K2oT9xr0xpdGstJ01q6_nUw/formResponse?usp=pp_url&entry.1407603725=${userName}&entry.184409190=${userMessage}`;
         fetch(url, requestOptions)
           .then((response) => response.text())
           .then((result) => console.log(result))
@@ -52,8 +58,6 @@
       }
 
       async function getMessage() {
-        
-
         var myHeaders = new Headers();
         myHeaders.append(
           "Cookie",
@@ -80,12 +84,12 @@
               });
               return a.slice(1);
             };
-            let b = messages_clean()
-            return b
-        })
-        .catch((error) => console.log("error", error));
-        
-        return a
+            let b = messages_clean();
+            return b;
+          })
+          .catch((error) => console.log("error", error));
+
+        return a;
       }
 
       function renderElemen(elemen = Array) {
@@ -106,9 +110,9 @@
           elements.push(outer);
         }
 
-        let messages = document.getElementById("messages")
-        for(let i =0; i<elements.length; i++){
-            messages.appendChild(elements[i])
+        let messages = document.getElementById("messages");
+        for (let i = 0; i < elements.length; i++) {
+          messages.appendChild(elements[i]);
         }
       }
     </script>
