@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("/assets/Poppins-Regular.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    
+    box-sizing: border-box;
+    font-family: Poppins, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root{
+    --red : #7C0A01;
+    --gold : #DAA520;
+    --black : #1B1811;
+    --white : #D9D9D9;
+}
+
+body{
+    background-color: var(--black);
+}
+
+.red{
+    color: var(--red);
+}
+
+.black{
+    color: var(--black);
+}
+
+.gold{
+    color: var(--gold);
+}
+
+.white{
+    color: var(--white);
+}
+
+.page{
+    margin: 1rem;
+    padding: 1rem;
+}
