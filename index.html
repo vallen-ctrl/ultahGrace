@@ -12,14 +12,19 @@
       <h1 class="gold">Happy 17th Birthday Grace</h1>
     </header>
 
-    <form action="">
-      <input type="text" name="userName" />
-      <input type="text" name="message" />
-      <button type="submit" id="submit-form-button">Kirim</button>
+    <form onsubmit="postMassage()" method="get">
+      <input type="text" name="userName" id="username"/>
+      <input type="text" name="message" required id="message"/>
+      <button type="submit" id="submit-form-button" onclick="">Kirim</button>
     </form>
 
-    <button onclick="getMessage()">try</button>
+    <div class="messages" id="messages"></div>
+
+
     <script>
+      window.addEventListener("load", async(a) => {
+        renderElemen(await getMessage())
+      });
       async function postMassage() {
         var myHeaders = new Headers();
         myHeaders.append(
@@ -33,15 +38,24 @@
           redirect: "follow",
         };
 
+        const userName = (document.getElementById("username").value.split(" ")).join("+")
+        const userMessage = (document.getElementById("message").value.split(" ")).join("+")
+        console.log(userName)
+
+
         const url =
           "https://docs.google.com/forms/d/e/1FAIpQLSeTWWrtp_HHAdX-H4teXSEQnQ-K2oT9xr0xpdGstJ01q6_nUw/formResponse?usp=pp_url&entry.1407603725=vallen+malia&entry.184409190=hi";
         fetch(url, requestOptions)
           .then((response) => response.text())
           .then((result) => console.log(result))
           .catch((error) => console.log("error", error));
+    
+  
       }
 
       async function getMessage() {
+        
+
         var myHeaders = new Headers();
         myHeaders.append(
           "Cookie",
@@ -54,24 +68,50 @@
           redirect: "follow",
         };
 
-        fetch(
+        let a = await fetch(
           "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ92H2prTbLB2zBfZ7XN4r5zkdtNcPF_neRD6QYxPs4XZSPfrym7pn72NWEbFZYMA6pukkSgpIwt8BP/pub?gid=847515822&single=true&output=csv",
           requestOptions
         )
           .then((response) => response.text())
           .then((result) => {
-            const messages_raw = result.split('\n')
-            const messages_clean = () =>{
-                let a = []
-                messages_raw.forEach(f =>{
-                    a.push(f.split(",").slice(1))
-                })
-                return a.slice(1)
-            }
+            const messages_raw = result.split("\n");
+            const messages_clean = () => {
+              let a = [];
+              messages_raw.forEach((f) => {
+                a.push(f.split(",").slice(1));
+              });
+              return a.slice(1);
+            };
+            let b = messages_clean()
+            return b
+        })
+        .catch((error) => console.log("error", error));
+        
+        return a
+      }
 
-            
-          })
-          .catch((error) => console.log("error", error));
+      function renderElemen(elemen = Array) {
+        let elements = [];
+        let lenght = elemen.length;
+        for (let i = 0; i < lenght; i++) {
+          let outer = document.createElement("div");
+          let username = document.createElement("h5");
+          let message = document.createElement("p");
+
+          let data_username = elemen[i][0] == "" ? "anonimus" : elemen[i][0];
+          let data_message = elemen[i][1];
+          username.innerText = data_username;
+          message.innerText = data_message;
+
+          outer.appendChild(username);
+          outer.appendChild(message);
+          elements.push(outer);
+        }
+
+        let messages = document.getElementById("messages")
+        for(let i =0; i<elements.length; i++){
+            messages.appendChild(elements[i])
+        }
       }
     </script>
   </body>
