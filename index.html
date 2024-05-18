@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HBD Grace</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header class="page">
-        <h1 class="gold">Happy 17th Birthday Grace</h1>
+      <h1 class="gold">Happy 17th Birthday Grace</h1>
     </header>
-</body>
+
+    <form action="">
+      <input type="text" name="userName" />
+      <input type="text" name="message" />
+      <button type="submit"></button>
+    </form>
+
+    <script>
+      async function postMassage() {
+        var myHeaders = new Headers();
+        myHeaders.append(
+          "Cookie",
+          "NID=514=uWynju8Bb59Wzgi3FY9tKqqlxvGf8Wyqk_n7KqXgNr9K3ECjhuXv81vOibKTvfbJCIeeFmDualV02itRs5sMmJ-QomuY_ZY7HM61dH9hGwNG5L0x2b9gjSmXL_ydwFWeaP5QfA94rk2KQEsGJtzEg8uMVFk5K2zzqAU0av3FM0E"
+        );
+
+        var requestOptions = {
+          method: "GET",
+          headers: myHeaders,
+          redirect: "follow",
+        };
+
+        fetch(
+          "https://docs.google.com/forms/d/e/1FAIpQLSeTWWrtp_HHAdX-H4teXSEQnQ-K2oT9xr0xpdGstJ01q6_nUw/formResponse?usp=pp_url&entry.1407603725=vallen+malia&entry.184409190=hi",
+          requestOptions
+        )
+          .then((response) => response.text())
+          .then((result) => console.log(result))
+          .catch((error) => console.log("error", error));
+      }
+    </script>
+  </body>
 </html>
