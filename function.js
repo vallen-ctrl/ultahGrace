@@ -6,6 +6,7 @@ class internalStorage {
     return JSON.parse(localStorage.getItem(key))
   }
 }
+let button = document.getElementById("submit-form-button")
 window.addEventListener("load", async (a) => {
   const internal = new internalStorage()  
   
@@ -13,7 +14,6 @@ window.addEventListener("load", async (a) => {
     const data = internal.getKey("hekayvejalemsapaddiaiasdadahbiuaslbaw")
     console.log(data)
     if(data){
-      let button = document.getElementById("submit-form-button")
       document.getElementById("username").value = data.userName.replace("+", " ");
       document.getElementById("message").value = data.userMessage.replace("+", " ");
       button.disabled = data.isPost
@@ -57,6 +57,7 @@ window.addEventListener("load", async (a) => {
       userName: userName,
       userMessage:userMessage
     }))
+    button.disabled =true
   }
 
   async function getMessage() {
