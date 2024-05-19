@@ -1,6 +1,25 @@
+class internalStorage {
+  post(key=String,params=Object) {
+    localStorage.setItem(key, params)  
+  }
+  getKey(key=String){
+    return JSON.parse(localStorage.getItem(key))
+  }
+}
 window.addEventListener("load", async (a) => {
-    renderElemen(await getMessage());
+  const internal = new internalStorage()  
+  
+  renderElemen(await getMessage());
+    const data = internal.getKey("hekayvejalemsapaddiaiasdadahbiuaslbaw")
+    console.log(data)
+    if(data){
+      let button = document.getElementById("submit-form-button")
+      document.getElementById("username").value = data.userName.replace("+", " ");
+      document.getElementById("message").value = data.userMessage.replace("+", " ");
+      button.disabled = data.isPost
+    }
   });
+
   async function postMassage() {
     var myHeaders = new Headers();
     myHeaders.append(
@@ -30,6 +49,14 @@ window.addEventListener("load", async (a) => {
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
+
+    const internal = new internalStorage()
+
+    internal.post("hekayvejalemsapaddiaiasdadahbiuaslbaw", JSON.stringify({
+      isPost: true,
+      userName: userName,
+      userMessage:userMessage
+    }))
   }
 
   async function getMessage() {
@@ -59,8 +86,9 @@ window.addEventListener("load", async (a) => {
           });
           return a.slice(1);
         };
-        let b = messages_clean();
-        return b;
+        let message = messages_clean();
+        console.log({message})
+        return message;
       })
       .catch((error) => console.log("error", error));
 
@@ -72,7 +100,7 @@ window.addEventListener("load", async (a) => {
     let lenght = elemen.length;
     for (let i = 0; i < lenght; i++) {
       let outer = document.createElement("div");
-      let username = document.createElement("h5");
+      let username = document.createElement("h2");
       let message = document.createElement("p");
 
       let data_username = elemen[i][0] == "" ? "anonimus" : elemen[i][0];
@@ -89,4 +117,23 @@ window.addEventListener("load", async (a) => {
     for (let i = 0; i < elements.length; i++) {
       messages.appendChild(elements[i]);
     }
+  }
+
+  async function foal(){
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 10000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    await Toast.fire({
+      icon: "success",
+      title: "surat mu akan tampil dalam beberapa saat\nsetelah pesan ini maka website akan relog otomatis"
+    });
+
+    window.location.reload()
   }

@@ -150,3 +150,17 @@ body{
 }
 
 /* Form Section */
+
+.messages{
+    color: #DAA520;
+}
+
+.message{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.message >*{
+    margin: 20px 20px 0 0;
+}
