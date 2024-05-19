@@ -9,17 +9,16 @@
     
     box-sizing: border-box;
     font-family: Poppins, Verdana, Geneva, Tahoma, sans-serif;
+
+    text-decoration: none;
+    color: var(--white);
 }
 
 :root{
     --red : #7C0A01;
     --gold : #DAA520;
-    --black : #1B1811;
+    --black : #110f0b;
     --white : #D9D9D9;
-}
-
-body{
-    background-color: var(--black);
 }
 
 .red{
@@ -38,7 +37,116 @@ body{
     color: var(--white);
 }
 
-.page{
-    margin: 1rem;
-    padding: 1rem;
+h1{
+    font-size: 4rem;
+    text-shadow: .1rem .1rem .1rem var(--black); 
 }
+
+h2{
+    font-size: 2.8rem;
+    text-shadow: .1rem .1rem .1rem var(--black); 
+}
+
+h3{
+    font-size: 1.6rem;
+    text-shadow: .1rem .1rem .1rem var(--black); 
+}
+
+p{
+    font-size: 1.2rem;
+}
+
+a{
+    background-color: var(--gold);
+    padding: 0.5rem;
+    width: 10rem;
+    border-radius: 0.2rem;
+    color: var(--black);
+    transition: 0.3s;
+    text-align: center;
+}
+
+a:hover{
+    width: 15rem;
+    background-color: var(--red);
+    color: var(--white);
+}
+
+body{
+    background-color: var(--black);
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.page{
+    padding: 0 3rem;
+    height: 40rem;
+    width: 84rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* border: solid 1px; */
+}
+
+.page .page-text{
+    display: flex;
+    flex-flow: wrap;
+    max-width: 55%;
+
+    align-content: center;
+    gap: 1.8rem;
+}
+.page .page-image{
+    max-width: 40%;
+}
+.foto-grace{
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.page .button-container{
+    display: flex;
+    gap: 1rem;
+}
+
+#header{
+    display: flex;
+    align-content: center;
+    /* justify-content: center; */
+    background:
+      60px 60px/calc(2*60px) calc(2*60px) conic-gradient(at calc(500%/6) 50%,#110f0b 25%,#0000 0),0 0/calc(2*60px) calc(2*60px) conic-gradient(at calc(500%/6) 50%,#110f0b 25%,#0000 0),
+      60px 60px/calc(2*60px) calc(2*60px) conic-gradient(at calc(200%/3) 50%,#000000 25%,#0000 0),0 0/calc(2*60px) calc(2*60px) conic-gradient(at calc(200%/3) 50%,#000000 25%,#0000 0),
+      repeating-conic-gradient(#1c1a17 0 25%,#0000 0 50%) 0 0/calc(2*60px) calc(2*60px),
+      linear-gradient(#1c1a17 calc(100%/3),#000000 0 calc(200%/3),#110f0b 0)
+       0 0/60px 60px;
+}
+
+#halaman-harapan{
+    background: linear-gradient(45deg,#0000 calc(25%/3), #110f0b 0 calc(50%/3),
+      #0000 0 calc(250%/3), #110f0b 0 calc(275%/3),
+      #0000 0),linear-gradient( 45deg,#110f0b calc(25%/3), #0000 0 calc(50%/3),
+      #110f0b 0 25%, #0000 0 75%,
+      #110f0b 0 calc(250%/3), #0000 0 calc(275%/3),
+      #110f0b 0),
+      linear-gradient(-45deg,#0000 calc(25%/3), #110f0b 0 calc(50%/3),
+      #0000 0 calc(250%/3), #110f0b 0 calc(275%/3),
+      #0000 0),linear-gradient(-45deg,#110f0b calc(25%/3), #0000 0 calc(50%/3),
+      #110f0b 0 25%, #0000 0 75%,
+      #110f0b 0 calc(250%/3), #0000 0 calc(275%/3),
+      #110f0b 0)
+      #2a2109;
+    background-size: 134px 134px;
+    background-position: 0 0, 67px  67px;
+}
+
+#lokasi{
+    background: repeating-conic-gradient(from 45deg, #110f0b 0% 25%, #000000 0% 50%);
+    background-size: 67px 67px;
+    background-color: #000000;
+}
+
+/* Form Section */
