@@ -5,8 +5,7 @@
 
 html{
     scroll-behavior: smooth;
-    overflow-y: hidden;
-
+    
 }
 *{
     margin: 0;
@@ -171,7 +170,7 @@ body{
       conic-gradient(from 90deg at 20% 20%,#110f0b 25%,#231b04 0) 
        0 0/72px 72px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .location {

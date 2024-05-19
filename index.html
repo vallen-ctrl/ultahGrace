@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>HBD Grace</title>
-
+    <link rel="icon" href="./cake.png">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -41,7 +43,7 @@
       </button>
     </div>
     <header class="page" id="header">
-      <div class="page-text">
+      <div class="page-text" data-aos = "fade-up-right">
         <div>
           <h1 class="gold">Happy 17th Birthday</h1>
           <h3 class="white" style="font-weight: lighter;"> 
@@ -54,16 +56,16 @@
           <a href="#form" class="gold-button">Kirim Pesan</a>
         </div>
       </div>
-      <div class="page-image">
+      <div class="page-image" >
         <img src="./img1.jpeg" alt="foto gres" class="foto-grace">
       </div>
     </header>
 
     <div class="page" id="halaman-harapan">
-      <div class="page-image">
+      <div class="page-image" data-aos="fade-up-right" data-aos-duration="2000">
         <img src="./img2.jpeg" alt="foto grace 2" class="foto-grace">
       </div>
-      <div class="page-text">
+      <div class="page-text" data-aos="fade-left" data-aos-duration="2000">
         <h2 class="gold">Harapan Grace</h2>
         <p class="white">
           Aku ingin terbang bebas, di angkasa. Hei baling-baling bambu. La, la, la, aku sayang sekali, Doraemon. Aku ingin terbang bebas, di angkasa. Hei baling-baling bambu. La, la, la, aku sayang sekali, Doraemon. 
@@ -75,8 +77,8 @@
     </div>
 
     <div class="page" id="lokasi">
-      <div class="page-text">
-        <h2 class="gold">Lokasi Acara</h1>
+      <div class="page-text"data-aos="fade-right" data-aos-duration="1000">
+        <h2 class="gold" >Lokasi Acara</h1>
         <p>
           Alamat lengkap : Jl Diponegoro, Jakarta Barat, Jakarta <br>
           Waktu acara : 10:00 - 15:00 WIB <br>
@@ -84,7 +86,7 @@
           Bawa kado : Ya
         </p>
       </div>
-      <div class="location">
+      <div class="location" data-aos="zoom-out" data-aos-duration="1000">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.285611491576!2d105.24802612401352!3d-5.373345253749597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40daceeca9cac7%3A0x5415bcd985a1d129!2sSMA%20Fransiskus%20Bandar%20Lampung%2C%20Kp.%20Baru%2C%20Kec.%20Kedaton%2C%20Kota%20Bandar%20Lampung%2C%20Lampung!5e0!3m2!1sen!2sid!4v1716083154250!5m2!1sen!2sid" style="border:0; border-radius: 0.5rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
         <a href="#lokasi" class="gold-button">Lokasi Acara</a>
       </div>
@@ -93,19 +95,19 @@
 
 
     <div class="page" id="form">
-      <div class="text-page">
+      <div class="text-page" data-aos="zoom-out-up" data-aos-duration="1000">
         <h2 class="gold">Form Pesan</h2>
         <p>
           Kirim pesanmu untuk Grace! Isi form di bawah (nama tidak wajib di isi).
         </p>
         <br>
-        <form onsubmit="postMassage();return false" method="get">
+        <form onsubmit="postMassage();return false" method="get" data-aos="zoom-out-up" data-aos-duration="1000">
           <input type="text" name="userName" id="username" placeholder="Nama (Opsional)"/> <br>
           <textarea type="text" name="message" required id="message" placeholder="Pesan"></textarea> <br>
           <button type="submit" id="submit-form-button" onclick="">Kirim</button>
         </form>
       </div>
-      <div class="messages" id="messages">
+      <div class="messages" id="messages" data-aos="zoom-out-up" data-aos-duration="1000">
         <!-- Isi pesan -->
       </div>
     </div>
@@ -123,7 +125,7 @@
     <link rel="stylesheet" href="sweetalert2.min.css">
 
     <script>
-      
+      AOS.init();
     </script>
   </body>
 </html>

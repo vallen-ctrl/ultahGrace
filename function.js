@@ -20,10 +20,11 @@ window.addEventListener("load", async (a) => {
 });
 
 window.addEventListener("DOMContentLoaded", async a =>{
+  header.scrollIntoView()
   
   console.log("page on")
+  document.querySelector("html").style = "overflow-y: hidden;";
   const internal = new internalStorage()  
-  header.scrollIntoView()
   renderElemen(await getMessage());
     const data = internal.getKey("hekayvejalemsapaddiaiasdadahbiuaslbaw")
 
