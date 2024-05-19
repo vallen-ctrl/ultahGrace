@@ -3,8 +3,10 @@
     src: url("/assets/Poppins-Regular.ttf");
 }
 
+
 html{
     scroll-behavior: smooth;
+    overflow: hidden;
     
 }
 *{
@@ -81,10 +83,7 @@ body{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    
 }
-
-
 
 .page{
     padding: 20px 3rem;
@@ -254,7 +253,8 @@ textarea:right{
     color: var(--black);
     background-color: #DAA520;
 
-    width: 60%;
+    /* width: 60%; */
+    width: 6rem;
     min-height: 5vh;
 
     transition: 0.2s;
@@ -357,6 +357,7 @@ footer * {
 }
 
 
+/* Btn config */
 .top {
     display: flex;
     justify-content: center;
@@ -365,7 +366,11 @@ footer * {
     width: 100vw;
     position: absolute;
     z-index: 2;
-    background-color: #2a2109;
+    /* background-color: #2a2109; */
+    background: linear-gradient(135deg, #110f0b 25%, transparent 25%) -32px 0, linear-gradient(225deg, #110f0b 25%, transparent 25%) -32px 0, linear-gradient(315deg, #110f0b 25%, transparent 25%), linear-gradient(45deg, #110f0b 25%, transparent 25%);
+    background-size: 64px 64px;
+    background-color: #3b2b06;
+
 }
 .top button {
     display: none;
@@ -376,7 +381,7 @@ footer * {
     max-width: 140px;
     height: 50px;
     border-radius: 0.5em;
-    box-shadow: 0 0.625em 1em 0 rgba(30, 143, 255, 0.35);
+    /* box-shadow: 0 0.625em 1em 0 rgba(30, 143, 255, 0.35); */
     overflow: hidden;
    }
    
@@ -399,15 +404,20 @@ footer * {
    }
    
    button div:nth-child(1) {
-    background-color: #1e90ff;
+    /* background-color: #1e90ff; */
+    color: var(--black);
+    background-color: var(--gold);
    }
    
    .top button div:nth-child(2) {
-    background-color: #21dc62;
+    /* background-color: #21dc62; */
+    background-color: var(--red);
+    color: var(--white);
    }
    
    .top button:hover {
-    box-shadow: 0 0.625em 1em 0 rgba(33, 220, 98, 0.35);
+    /* box-shadow: 0 0.625em 1em 0 rgba(33, 220, 98, 0.35); */
+    cursor: pointer;
    }
    
    .top button:hover div {
@@ -417,7 +427,7 @@ footer * {
    .top button p {
     font-size: 17px;
     font-weight: bold;
-    color: #ffffff;
+    /* color: #ffffff; */
    }
    
    .top button:active {
@@ -436,8 +446,10 @@ footer * {
 
 
    .loader {
-    --col1: rgba(228, 19, 141, 0.925);
-    --col2: rgb(255, 179, 80);
+    /* --col1: rgba(228, 19, 141, 0.925); */
+    /* --col2: rgb(255, 179, 80);  */
+    --col1: var(--red);
+    --col2: var(--gold);
     font-size: 2em;
     font-weight: 600;
     perspective: 800px;
