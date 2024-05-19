@@ -98,7 +98,7 @@ body{
 .page .page-text{
     display: flex;
     flex-flow: wrap;
-    max-width: 55%;
+    /* max-width: 55%; */
     flex-direction: column;
     align-content: center;
     gap: 1.8rem;
@@ -155,6 +155,17 @@ body{
     background-color: #000000;
 }
 
+#form{
+    background:
+      calc( .9*72px) calc( .9*72px)/calc(2*72px) calc(2*72px) conic-gradient(at 20% 20%,#0000 75%,#110f0b 0),
+      calc(-.1*72px) calc(-.1*72px)/calc(2*72px) calc(2*72px) conic-gradient(at 20% 20%,#0000 75%,#110f0b 0),
+      calc( .7*72px) calc( .7*72px)/calc(2*72px) calc(2*72px) conic-gradient(at 40% 40%,#0000 75%,#231b04 0),
+      calc(-.3*72px) calc(-.3*72px)/calc(2*72px) calc(2*72px) conic-gradient(at 40% 40%,#0000 75%,#231b04 0),
+      conic-gradient(from 90deg at 20% 20%,#110f0b 25%,#231b04 0) 
+       0 0/72px 72px;
+
+}
+
 .location {
     display: flex;
     justify-content: center;
@@ -188,7 +199,7 @@ body{
 }
 
 #form .text-page{
-    width: 45%;
+    width: 100%;
 }
 #username{
     width: 100%;
@@ -244,6 +255,8 @@ body{
     height: 50vh;
     overflow: scroll;
     width: 45vw;
+    
+    background-color: rgba(0, 0, 0, 0.637);
 }
 
 #messages .username {
@@ -267,6 +280,22 @@ body{
 .messages {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+}
+
+footer{
+    background-color: var(--gold);
+    width: 100%;
+    min-height: 15vh;
+
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+footer * {
+    color:var(--black);
+    text-align: center;
 }
 
 @media (max-width: 800px){
