@@ -4,11 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
     <title>HBD Grace</title>
 
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <audio
+      id="myAudio"
+      src="./audio.mp3"
+      muted="muted"
+      type="audio/mpeg"
+      loop="true"
+    ></audio>
+
+
+    <div class="top" id="top">
+      <div class="loader" id="loader">
+        <p class="text">
+          loading...
+        </p>
+      </div>
+      
+      
+      <button id="btn">
+        <div>
+          <span>
+            <p>lihat undangan</p><p>:)</p>
+          </span>
+        </div>
+        <div>
+          <span>
+            <p>Thanks</p><p>:D</p>
+          </span>
+        </div>
+      </button>
+    </div>
     <header class="page" id="header">
       <div class="page-text">
         <div>
@@ -24,13 +55,13 @@
         </div>
       </div>
       <div class="page-image">
-        <img src="/assets/monkey.jpg" alt="foto gres" class="foto-grace">
+        <img src="./img1.jpeg" alt="foto gres" class="foto-grace">
       </div>
     </header>
 
     <div class="page" id="halaman-harapan">
       <div class="page-image">
-        <img src="/assets/monkey.jpg" alt="foto grace 2" class="foto-grace">
+        <img src="./img2.jpeg" alt="foto grace 2" class="foto-grace">
       </div>
       <div class="page-text">
         <h2 class="gold">Harapan Grace</h2>
@@ -60,18 +91,33 @@
       </div>
     </div>
 
+
     <div class="page" id="form">
-      <form onsubmit="postMassage();return false" method="get">
-        <input type="text" name="userName" id="username" placeholder="Nama (Opsional)"/> <br>
-        <input type="text" name="message" required id="message" placeholder="Pesan"/> <br>
-        <button type="submit" id="submit-form-button" onclick="">Kirim</button>
-      </form>
-  
-      <div class="messages" id="messages"></div>
+      <div class="text-page">
+        <h2 class="gold">Form Pesan</h2>
+        <p>
+          Kirim pesanmu untuk Grace! Isi form di bawah (nama tidak wajib di isi).
+        </p>
+        <br>
+        <form onsubmit="postMassage();return false" method="get">
+          <input type="text" name="userName" id="username" placeholder="Nama (Opsional)"/> <br>
+          <textarea type="text" name="message" required id="message" placeholder="Pesan"></textarea> <br>
+          <button type="submit" id="submit-form-button" onclick="">Kirim</button>
+        </form>
+      </div>
+      <div class="messages" id="messages">
+        <!-- Isi pesan -->
+      </div>
     </div>
+
+    <footer>
+      <p style="font-weight: lighter;">@ignyagrace</p>
+      <h4 style="font-weight: lighter;">By Vallen & KangCopy</h4>
+    </footer>
 
     <!-- 
     <script src="function.js"></script> -->
+    
     <script src="function.js"></script>
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
