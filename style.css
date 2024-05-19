@@ -38,7 +38,7 @@
 }
 
 h1{
-    font-size: 4rem;
+    font-size: 5rem;
     text-shadow: .1rem .1rem .1rem var(--black); 
 }
 
@@ -77,13 +77,16 @@ body{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    
 }
+
+
 
 .page{
     padding: 20px 3rem;
-    height: auto;
+    
     width: 100%;
-
+    min-height:40rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -91,11 +94,12 @@ body{
     /* border: solid 1px; */
 }
 
+
 .page .page-text{
     display: flex;
     flex-flow: wrap;
     max-width: 55%;
-
+    flex-direction: column;
     align-content: center;
     gap: 1.8rem;
 }
@@ -108,11 +112,14 @@ body{
 }
 
 .page .button-container{
+    align-items: center;
     display: flex;
     gap: 1rem;
 }
 
 #header{
+    
+    height: 100vh;
     display: flex;
     align-content: center;
     /* justify-content: center; */
@@ -148,6 +155,22 @@ body{
     background-color: #000000;
 }
 
+.location {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.location > * {
+    margin: 20px 20px 0 0;
+}
+
+.location iframe{
+    height: 60vh;
+    width: 40vw;
+}
+
 /* Form Section */
 
 .messages{
@@ -165,6 +188,29 @@ body{
 }
 
 @media (max-width: 800px){
+    a{
+        text-align: center;
+        width: 70vw;
+        height: 10vw;
+        line-height: 7vw;
+        vertical-align: middle;
+    }
+
+    h1{
+        font-size: 3rem;
+    }
+
+    #header {
+        justify-content: space-evenly;
+    }
+    .location iframe{
+        width: 100%;
+    }
+
+    .page-text{
+        max-width: 90%;
+    }
+
     .page{
         flex-direction: column;
     }
