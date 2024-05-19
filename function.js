@@ -105,8 +105,11 @@ window.addEventListener("load", async (a) => {
 
       let data_username = elemen[i][0] == "" ? "anonimus" : elemen[i][0];
       let data_message = elemen[i][1];
+      
       username.innerText = data_username;
+      username.className = "username"
       message.innerText = data_message;
+      message.className = "usermassage"
 
       outer.appendChild(username);
       outer.appendChild(message);
