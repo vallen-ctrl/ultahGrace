@@ -3,6 +3,11 @@
     src: url("/assets/Poppins-Regular.ttf");
 }
 
+html{
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+
+}
 *{
     margin: 0;
     padding: 0;
@@ -84,7 +89,8 @@ body{
 
 .page{
     padding: 20px 3rem;
-    
+    position: relative;
+
     width: 100%;
     min-height:40rem;
     display: flex;
@@ -105,6 +111,7 @@ body{
 }
 .page .page-image{
     max-width: 40%;
+    margin-right: 40px;
 }
 .foto-grace{
     width: 100%;
@@ -163,7 +170,8 @@ body{
       calc(-.3*72px) calc(-.3*72px)/calc(2*72px) calc(2*72px) conic-gradient(at 40% 40%,#0000 75%,#231b04 0),
       conic-gradient(from 90deg at 20% 20%,#110f0b 25%,#231b04 0) 
        0 0/72px 72px;
-
+    display: flex;
+    flex-direction: column;
 }
 
 .location {
@@ -198,10 +206,16 @@ body{
     margin: 20px 20px 0 0;
 }
 
+
 #form .text-page{
-    width: 100%;
+    margin-right: 40px;
+    width:100%;
+    display: flex;
+    flex-direction: column;
 }
 #username{
+    color: #D9D9D9;
+    max-width: 500px;
     width: 100%;
     margin-bottom: 1vh;
     min-height: 5vh;
@@ -215,14 +229,20 @@ body{
     opacity: 30%;
 }
 
+textarea:right{
+    color: #D9D9D9;
+}
 #message{
+    padding: 10px;
+    max-width: 500px;
     width: 100%;
     margin-bottom: 1vh;
     min-height: 5vh;
     color: var(--black);
     padding-inline: 0.5rem;
-
+    resize: none;
     border-radius: 0.5rem;
+    height: 100px;
 }
 #message::placeholder{
     color: var(--black);
@@ -235,7 +255,7 @@ body{
     color: var(--black);
     background-color: #DAA520;
 
-    width: 100%;
+    width: 60%;
     min-height: 5vh;
 
     transition: 0.2s;
@@ -299,6 +319,7 @@ footer * {
 }
 
 @media (max-width: 800px){
+
     #messages{
         margin-top: 5vh;
         width: 80vw;
@@ -335,3 +356,166 @@ footer * {
         flex-direction: column;
     }
 }
+
+
+.top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    z-index: 2;
+    background-color: #2a2109;
+}
+.top button {
+    display: none;
+    outline: 0;
+    border: 0;
+    flex-direction: column;
+    width: 100%;
+    max-width: 140px;
+    height: 50px;
+    border-radius: 0.5em;
+    box-shadow: 0 0.625em 1em 0 rgba(30, 143, 255, 0.35);
+    overflow: hidden;
+   }
+   
+   .top button div {
+    transform: translateY(0px);
+    width: 100%;
+   }
+   
+   .top button,
+   button div {
+    transition: 0.6s cubic-bezier(.16,1,.3,1);
+   }
+   
+   .top button div span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0.75em 1.125em;
+   }
+   
+   button div:nth-child(1) {
+    background-color: #1e90ff;
+   }
+   
+   .top button div:nth-child(2) {
+    background-color: #21dc62;
+   }
+   
+   .top button:hover {
+    box-shadow: 0 0.625em 1em 0 rgba(33, 220, 98, 0.35);
+   }
+   
+   .top button:hover div {
+    transform: translateY(-50px);
+   }
+   
+   .top button p {
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+   }
+   
+   .top button:active {
+    transform: scale(0.95);
+   }
+
+   @keyframes close {
+    0%{
+        top: 0;
+    }
+
+    100%{
+        top: -140vh;
+    }
+   }
+
+
+   .loader {
+    --col1: rgba(228, 19, 141, 0.925);
+    --col2: rgb(255, 179, 80);
+    font-size: 2em;
+    font-weight: 600;
+    perspective: 800px;
+    position: relative;
+  }
+  
+  .loader::after,
+  .loader::before,
+  .loader .text::after,
+  .loader .text::before {
+    perspective: 800px;
+    animation: anim 2s ease-in-out infinite, dotMove 10s ease-out alternate infinite, move 10s linear infinite 1s;
+    ;
+    content: '●';
+    color: var(--col1);
+    position: absolute;
+    translate: -60px 500px;
+    width: 5px;
+    height: 5px;
+  }
+  
+  .loader::before {
+    animation-delay: 3s;
+    color: var(--col1);
+  }
+  
+  .loader .text::before {
+    color: var(--col2);
+    animation-delay: 2s;
+  }
+  
+  .loader .text::after {
+    color: var(--col2);
+  }
+  
+  .loader .text {
+    animation: anim 20s linear infinite, move 10s linear infinite 1s;
+    color: transparent;
+    background-image: linear-gradient(90deg, 
+    var(--col1) 0%,
+    var(--col2) 100%);
+    background-clip: text;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transform: skew(5deg, -5deg);
+    -webkit-background-clip: text;
+    position: relative;
+  }
+  
+  @keyframes anim {
+    0%, 100% {
+      text-shadow: 2px 0px 2px rgba(179, 158, 158, .5);
+    }
+  
+    50% {
+      background-size: 0%;
+      background-position-x: left;
+      text-shadow: 2px 10px 6px rgba(179, 158, 158, 1);
+    }
+  }
+  
+  @keyframes move {
+    50% {
+      translate: 0px 0px;
+      rotate: x 60deg;
+      transform: skew(-5deg, 5deg);
+    }
+  }
+  
+  @keyframes dotMove {
+    0%, 100% {
+      translate: -60px 300px;
+    }
+  
+    50% {
+      translate: 160px -250px;
+      scale: .5;
+      opacity: .85;
+    }
+  }

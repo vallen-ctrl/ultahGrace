@@ -6,20 +6,33 @@ class internalStorage {
     return JSON.parse(localStorage.getItem(key))
   }
 }
+
+let header = document.getElementById("header")
 let button = document.getElementById("submit-form-button")
+let btnawal = document.getElementById("btn")
+
+
 window.addEventListener("load", async (a) => {
-  const internal = new internalStorage()  
+  btnawal.style = "display:flex;"
+  document.getElementById("loader").style = "display:none;"
+
+  console.log("all loaded")
+});
+
+window.addEventListener("DOMContentLoaded", async a =>{
   
+  console.log("page on")
+  const internal = new internalStorage()  
+  header.scrollIntoView()
   renderElemen(await getMessage());
     const data = internal.getKey("hekayvejalemsapaddiaiasdadahbiuaslbaw")
-    console.log(data)
+
     if(data){
       document.getElementById("username").value = data.userName.replace("+", " ");
       document.getElementById("message").value = data.userMessage.replace("+", " ");
       button.disabled = data.isPost
     }
-  });
-
+})
   async function postMassage() {
     var myHeaders = new Headers();
     myHeaders.append(
@@ -141,3 +154,17 @@ window.addEventListener("load", async (a) => {
 
     window.location.reload()
   }
+
+
+  document.getElementById("btn").addEventListener("click", ()=>{
+    let top = document.getElementById("top")
+    
+    let myAudio = document.getElementById("myAudio")
+    document.querySelector("html").style = "overflow-y: auto;"
+    top.style = "animation: close 5s;";
+    top.addEventListener("animationend", ()=>{
+      top.style = "display: none;"
+      myAudio.muted = false;
+      myAudio.play()
+    })
+  })
